@@ -1,9 +1,18 @@
 import sys
 import poxel
 
-my_project = poxel.Project()
+class TestProject ( poxel.Project ):
 
-temp_elements = [ poxel.Element() for _ in range( 10 ) ]
-print( [ el.id for el in temp_elements ] )
+    def compute( self, frame ):
 
-my_project.run( sys.argv )
+        output = [
+            {
+                "type": "image",
+                "src": "res/assets/guy.png",
+                "position": [ frame, 0, 0 ]
+            }
+        ]
+
+        return output
+
+TestProject( sys.argv )
